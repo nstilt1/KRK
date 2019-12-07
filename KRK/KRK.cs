@@ -10,7 +10,8 @@ using System.Collections.Generic;
 namespace KRK {
     //public class Calculator : MonoBehaviour {
     public class Calculator { 
-        private const double g = 9.80665;
+        //private const double g = 9.80665;
+        private const double g = 9.81; // this might have caused the slight error when using 4000 m/s
         /**
          * Constructor for the Calculator class
          **/
