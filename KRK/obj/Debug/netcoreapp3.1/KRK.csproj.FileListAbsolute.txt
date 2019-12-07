@@ -1,0 +1,11 @@
+C:\Users\omert\Desktop\KRK\obj\Debug\netcoreapp3.1\KRK.csprojAssemblyReference.cache
+C:\Users\omert\Desktop\KRK\obj\Debug\netcoreapp3.1\KRK.AssemblyInfoInputs.cache
+C:\Users\omert\Desktop\KRK\obj\Debug\netcoreapp3.1\KRK.AssemblyInfo.cs
+C:\Users\omert\Desktop\KRK\bin\Debug\netcoreapp3.1\KRK.exe
+C:\Users\omert\Desktop\KRK\bin\Debug\netcoreapp3.1\KRK.deps.json
+C:\Users\omert\Desktop\KRK\bin\Debug\netcoreapp3.1\KRK.runtimeconfig.json
+C:\Users\omert\Desktop\KRK\bin\Debug\netcoreapp3.1\KRK.runtimeconfig.dev.json
+C:\Users\omert\Desktop\KRK\bin\Debug\netcoreapp3.1\KRK.dll
+C:\Users\omert\Desktop\KRK\bin\Debug\netcoreapp3.1\KRK.pdb
+C:\Users\omert\Desktop\KRK\obj\Debug\netcoreapp3.1\KRK.dll
+C:\Users\omert\Desktop\KRK\obj\Debug\netcoreapp3.1\KRK.pdb
