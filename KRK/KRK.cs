@@ -274,6 +274,11 @@ namespace KRK {
                 double totalThrust = thrust;
                 double totalEngineMass = 0;
                 for (int numEngines = 1; numEngines <= 7; numEngines++) {
+                    if(numEngines == 2){ // to avoid complications with symmetry
+                        totalEngineMass += engineMass;
+                        numEninges += 1;
+                        totalThrust += thrust;
+                    }
                     totalEngineMass += engineMass;
 
                     double tempWetMass = baseWetMass + totalEngineMass;
@@ -305,14 +310,14 @@ namespace KRK {
                                 
                                 if (firstIndex != -1)
                                     firstIndex = col;
-                                if (configs[0, en] == 0) {
+                                if (configs[0, en] == 0) { // if a configuration with this engine hasn't been found
                                     configs[0, en] = tempWetMass2;
                                     configs[1, en] = numEngines;
                                     configs[2, en] = col;
                                     col = 95;
                                     numEngines = 15;
                                     // when col = 96, a good config has been found
-                                }else if (configs[0, en] > tempWetMass2) {
+                                }else if (configs[0, en] > tempWetMass2) { // if this configuration weighs less than the best config with the same engine
                                     configs[0, en] = tempWetMass2;
                                     configs[1, en] = numEngines;
                                     configs[2, en] = col;
@@ -349,16 +354,16 @@ namespace KRK {
                                 if (currentTWR < minTWR) // fixes TWR issue: TWR is always decreasing as the column increases
                                     col = 98;
                                 else {
-                                    if (tempWetMass2 / tempDryMass2 >= targetRatio) {
+                                    if (tempWetMass2 / tempDryMass2 >= targetRatio) { 
                                         if (firstIndex != -1)
                                             firstIndex = col;
-                                        if (configs[0, en] != 0) {
+                                        if (configs[0, en] != 0) { // if no configuration has been found prior to this one
                                             configs[0, en] = tempWetMass2;
                                             configs[1, en] = numEngines;
                                             configs[2, en] = col;
                                             col = 95;
                                             numEngines = 15;
-                                        }else if(configs[0,en] > tempWetMass2){
+                                        }else if(configs[0,en] > tempWetMass2){ // if a better configuration has just been found
                                             configs[0, en] = tempWetMass2;
                                             configs[1, en] = numEngines;
                                             configs[2, en] = col;
@@ -450,17 +455,21 @@ namespace KRK {
          **/
         void interpretConfig(double[] config) {
             //System.Console.Write(string.Format("{0} ", wetTanks[i, j]));
-            if (config[1] == 1) {
-                System.Console.Write("Use one fuel stack with ");
-            } else {
-                System.Console.Write("Use " + config[1] + " fuel stacks with ");
+            if(config[1] == 0){ // if no config was found
+                System.Console.Write("Could not find a suitable set of parts.");
+            }else{
+                if (config[1] == 1) {
+                    System.Console.Write("Use one fuel stack with ");
+                } else {
+                    System.Console.Write("Use " + config[1] + " fuel stacks with ");
+                }
+                if (config[2] >= 24) {
+                    System.Console.Write("a FL-T800 and " + decoded[System.Convert.ToInt16(config[2]) - 24] + " the engine ");
+                } else {
+                    System.Console.Write("a " + decoded[System.Convert.ToInt16(config[2])] + " and an ");
+                }
+                System.Console.Write(engines[System.Convert.ToInt16(config[3])].name + " on each stack");
             }
-            if (config[2] >= 24) {
-                System.Console.Write("a FL-T800 and " + decoded[System.Convert.ToInt16(config[2]) - 24] + " the engine ");
-            } else {
-                System.Console.Write("a " + decoded[System.Convert.ToInt16(config[2])] + " and an ");
-            }
-            System.Console.Write(engines[System.Convert.ToInt16(config[3])].name + " on each stack");
         }
 
         private class Engine {
