@@ -3,7 +3,7 @@ using System.Collections.Generic;
 //using UnityEngine;
 
 /**
- * Names: Joseph Giambrone, Jacob Cosgrove, Omer Tariq, Noah Stiltner
+ * Names: Noah Stiltner, Omer Tariq, Jacob Cosgrove, Joseph Giambrone
  */
 
 // namespace line added to make it a program
