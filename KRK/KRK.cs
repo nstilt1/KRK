@@ -11,6 +11,9 @@ namespace KRK {
     //public class Calculator : MonoBehaviour {
     public class Calculator { 
         private const double g = 9.80665;
+        /**
+         * Constructor for the Calculator class
+         **/
         public Calculator(){}
 
 
@@ -117,11 +120,11 @@ namespace KRK {
 
         private double[,] wetTanks = new double[7, 48];
         private double[,] dryTanks = new double[7, 48];
-        //private double wetOffset;
-        //private double dryOffset;
-        // Start is called before the first frame update
-        //void Start() {
-        //void Main(string[] args) { 
+
+        /**
+         * The original Start method. Begins calculations and is the primary algorithm. Initializes the 2d 
+         * arrays of dry and wet tank masses
+         **/
         public void testStart(){
             System.Console.WriteLine("Let's see here...");
             // row is the amount of fuel tank stacks
@@ -224,10 +227,10 @@ namespace KRK {
         }
         /**
          * Gets the optimal configuration of engines, amount of engines, and tanks
-         * param mass The mass of the stage before
-         * param dv The target delta v
-         * param minTWR The minimum TWR to achieve
-         * param isASL If the stage starts at sea level or not
+         * @param mass The mass of the stage before
+         * @param dv The target delta v
+         * @param minTWR The minimum TWR to achieve
+         * @param isASL If the stage starts at sea level or not
          * Returns a configuration of {the rocket engine's index, the
          * amount of engines, the fuel tank configuration}
          **/
@@ -440,6 +443,11 @@ namespace KRK {
             }
             
         }
+
+        /**
+         * Interprets the 1 dimensional config array and converts it to a string.
+         * @param config the column of configs[,] with the lowest mass
+         **/
         void interpretConfig(double[] config) {
             //System.Console.Write(string.Format("{0} ", wetTanks[i, j]));
             if (config[1] == 1) {
@@ -465,12 +473,12 @@ namespace KRK {
             public Engine() { }
             /**
              * Makes an engine given the parameters
-             * string n is the name
-             * double ispA is the ispASL
-             * double ispV is the ispVac
-             * double thrustA is the thrustASL
-             * double thrustV is the thrustVac
-             * double m is the mass
+             * @param n is the name
+             * @param ispA is the ispASL
+             * @param ispV is the ispVac
+             * @param thrustA is the thrustASL
+             * @param thrustV is the thrustVac
+             * @param m is the mass
              **/
             public Engine(string n, double ispA, double ispV, double thrustA, double thrustV, double m) {
                 name = n;
