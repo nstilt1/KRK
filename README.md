@@ -1,6 +1,6 @@
 # KRK
 # Kerbal Rocket Kalculator*
-*Konstructor coming soon (maybe)*
+\**Konstructor coming soon (maybe)*
 
 Hello, World.
 
