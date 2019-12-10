@@ -277,7 +277,7 @@ namespace KRK {
                 for (int numEngines = 1; numEngines <= 7; numEngines++) {
                     if(numEngines == 2){ // to avoid complications with symmetry
                         totalEngineMass += engineMass;
-                        numEninges += 1;
+                        numEngines += 1;
                         totalThrust += thrust;
                     }
                     totalEngineMass += engineMass;
