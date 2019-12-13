@@ -457,19 +457,23 @@ namespace KRK {
         void interpretConfig(double[] config) {
             //System.Console.Write(string.Format("{0} ", wetTanks[i, j]));
             if(config[1] == 0){ // if no config was found
-                System.Console.Write("Could not find a suitable set of parts.");
+                System.Console.Write("\nCould not find a suitable set of parts.");
             }else{
                 if (config[1] == 1) {
-                    System.Console.Write("Use one fuel stack with ");
+                    System.Console.Write("\nUse one fuel stack with ");
                 } else {
-                    System.Console.Write("Use " + config[1] + " fuel stacks with ");
+                    System.Console.Write("\nUse " + config[1] + " fuel stacks with ");
                 }
                 if (config[2] >= 24) {
                     System.Console.Write("a FL-T800 and " + decoded[System.Convert.ToInt16(config[2]) - 24] + " the engine ");
                 } else {
                     System.Console.Write("a " + decoded[System.Convert.ToInt16(config[2])] + " and an ");
                 }
-                System.Console.Write(engines[System.Convert.ToInt16(config[3])].name + " on each stack");
+                System.Console.Write(engines[System.Convert.ToInt16(config[3])].name);
+                if(config[1] == 1)
+                    System.Console.WriteLine(" on the stack.");
+                else
+                    System.Console.WriteLine(" on each stack.");
             }
         }
 
